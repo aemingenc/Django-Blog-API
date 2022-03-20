@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import CardList
+from .views import CardDetail,CardList
 
 urlpatterns = [
  
-     path("",CardList.as_view(),name ="card_list"),
+
+    path("card-detail/<int:pk>/", CardDetail.as_view()),
+    path("list/",CardList.as_view(),name ="card_list"),
     
  ]
