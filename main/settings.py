@@ -153,7 +153,7 @@ REST_FRAMEWORK = {
 
 #Bunu ise 3 authhentication dan token authentication kullandıgımız için ekledik
 #diğer ikisi basic ve session authentication
-    "DEFAULT_AUTHHENTICATION_CLASSES":["rest_framework.authentication.TokenAuthentication"]
+    "DEFAULT_AUTHENTICATION_CLASSES":["rest_framework.authentication.TokenAuthentication"]
 
 }
 
@@ -169,11 +169,7 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_EXPOSE_HEADERS = (
     'Access-Control-Allow-Origin: *',
 )
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
-CORS_EXPOSE_HEADERS = (
-    'Access-Control-Allow-Origin: *',
-)
+
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT =os.path.join(BASE_DIR, 'media')
