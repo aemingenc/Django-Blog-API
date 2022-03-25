@@ -174,3 +174,6 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_EXPOSE_HEADERS = (
     'Access-Control-Allow-Origin: *',
 )
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT =os.path.join(BASE_DIR, 'media')

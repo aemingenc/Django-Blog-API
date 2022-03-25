@@ -8,12 +8,28 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.generics import GenericAPIView, mixins
 
-class CardList(generics.ListAPIView):
+# class CardList(generics.ListAPIView):
+#     queryset = Card.objects.all()
+#     serializer_class = CardSerializer
+
+class CardList(mixins.ListModelMixin,mixins.CreateModelMixin ,GenericAPIView):
     queryset = Card.objects.all()
     serializer_class = CardSerializer
 
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+    
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
 
+class CardPost(mixins.CreateModelMixin ,GenericAPIView):
+    queryset = Card.objects.all()
+    serializer_class = CardSerializer
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
 # class CardList(APIView):
 
 #     def get(self, request):

@@ -27,7 +27,7 @@ class CardSerializer(serializers.ModelSerializer):
     likes_count = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = Card
-        fields = ["title","content","createdDate","updateDate","comments","comments_count","likes","likes_count"]
+        fields = ["id","user","title","image","content","createdDate","updateDate","comments","comments_count","likes","likes_count"]
 
     def get_comments_count(self,obj):
         return obj.comments.count()
