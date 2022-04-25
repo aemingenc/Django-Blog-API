@@ -5,12 +5,14 @@ from django.contrib.auth.models import User
 
 class Card(models.Model):
     
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    title = models.CharField(max_length=20)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="user")
+    title = models.CharField(max_length=20,blank=True)
     content = models.TextField()
-    image =models.CharField(max_length=1000)
+    image =models.CharField(max_length=100,blank=True)
     updateDate = models.DateTimeField(auto_now=True)
     createdDate = models.DateTimeField(auto_now_add=True)
+    email = models.EmailField(blank=True)
+    
     
 
     def __str__(self):
